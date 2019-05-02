@@ -1,0 +1,169 @@
+.slider-fade 
+  animation-name: fade
+  animation-duration: 1.5s
+
+
+@keyframes fade 
+  from 
+    opacity: .4
+  to 
+    opacity: 1
+
+
+.slider
+  position: relative
+  +screen_md
+    height: 500px
+    overflow: hidden
+  &__wrap
+    +screen_md
+      position: absolute
+      left: 0
+      right: 0
+  &__item
+    position: relative
+  &__content
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+    display: flex
+    align-items: center
+    background: linear-gradient(to right, transparentize($green, 0.3) 0%, transparentize($green, 0.3) 65%, transparent 100%)
+    +screen_md
+      width: 45%
+
+    &__text_title
+      color: white
+      font-weight: bold
+      font-size: 2rem
+    &__btn
+      color: white
+      background: darken($green, 10%)
+      padding: 5px 10px
+      border: none
+      &:focus, &:hover
+        background: $black
+  &__dot
+    width: 15px
+    height: 15px
+    background: white
+    border-radius: 50%
+    border: 1px solid $green 
+    font-size: 0
+    &__wrap
+      position: absolute
+      left: calc(50% - 27px)
+.active
+  background: $green
+
+.img
+  display: block
+  width: 100%
+  height: 500px
+  object-fit: cover
+
+
+.form
+  +screen_md
+    padding: 20px
+    position: absolute
+    width: 400px
+    right: 20px
+    top: 20%
+    z-index: 5
+    background: transparentize($green, 0.5)
+  &__title
+    font-size: 1.2rem
+    color: $grey
+    text-align: center
+    margin: 30px 0 0
+    text-transform: uppercase
+    +screen_md
+      display: none
+  &__input
+    display: block
+    width: 100%
+    margin: 20px auto
+    padding: 10px
+    border: none 
+    outline: none
+    background: $grey
+    +screen_md
+      background: white
+      width: 80%
+    &::placeholder
+      color: $black
+      font-size: 12px
+  &__btn
+    margin-bottom: 20px
+    border: none
+    color: white
+    background: $black
+    padding: 8px 15px
+    +screen_md
+      margin-left: 10%
+    &:focus, &:hover
+      background: $green
+
+
+$service-icons: (tablets: '\f490', clinic-medical: '\f7f2', security: '\f3ed', vial: '\f492')
+
+@each $icon, $code in $service-icons
+  .icon_#{$icon}
+    &::before
+      content: $code
+      font-family: $fa-free
+      font-weight: 600
+      display: block
+      font-size: 2.5rem
+      line-height: 2
+      width: 80px
+      height: 80px
+      background: #49c0d0
+      text-align: center
+      border-radius: 50%
+      color: white
+      margin: 10px auto 25px
+
+.service
+  text-align: center
+  font-size: 0.8rem
+  padding: 40px 0
+  &__title
+    font-size: 1.2rem
+    text-transform: uppercase
+    margin: 30px 0
+    color: $grey
+  &__item
+    &__title
+      font-size: 1rem
+      text-transform: uppercase
+      font-weight: bold
+
+.promo
+  display: flex
+  justify-content: space-between
+  align-items: center
+  flex-wrap: wrap
+  padding-top: 20px
+  padding-bottom: 20px
+  color: white
+  font-size: 0.9rem
+  &__wrap
+    background: $black
+    margin: 50px 0
+  &__btn
+    background: white
+    color: $black
+    border: none
+    padding: 5px 10px
+    &:hover, &:focus
+      background: black
+      color: white
+
+
+
+
+
+

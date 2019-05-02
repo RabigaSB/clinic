@@ -1,0 +1,174 @@
+%vertical-devider
+  +screen_lg
+    content: ''
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    right: 0
+    width: 1px
+    height: 32px
+    background: $grey
+
+.header
+  position: relative
+  &_upper
+    display: none
+    position: absolute
+    top: 65px
+    right: 15px
+    background: white
+    z-index: 10
+    +screen_lg
+      position: static
+      display: block
+
+.toolbar 
+  padding: 5px 0
+  +screen_lg
+    display: flex
+    justify-content: flex-end
+    padding: 15px 0
+    align-items: center
+    border-bottom: 1px solid $grey
+
+  button
+    background: transparent
+    border: none
+    color: $green
+    &:focus
+      color: $black
+    +screen_lg
+      &:hover
+        color: $black
+  &__block
+    display: flex
+
+
+.auth
+  padding: 0 10px
+  position: relative
+  &::after
+    @extend %vertical-devider
+  &__btn
+    font-size: 12px
+    line-height: 2
+
+
+.social-network
+  padding: 0 10px
+  &__item
+    padding: 0 10px
+
+
+.logo
+  &:hover
+    color: $black
+  &::before
+    content: 'Med'
+    font-size: 25px
+    font-weight: bold
+  &::after
+    content: 'Clinic'
+    font-size: 30px
+
+
+$contact-icons: (map: '\f3c5', phone: '\f095', clock: '\f017')
+
+@each $icon, $code in $contact-icons
+  .contact__#{$icon}
+    position: relative
+    padding-left: 55px
+    &::before
+      content: $code
+      font-family: $fa-free
+      font-weight: 600
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      left: 25px
+      color: $green
+      font-size: 20px
+
+
+.contact
+  padding: 5px 0
+  +screen_lg
+    padding: 20px 0
+    display: flex
+    justify-content: space-between
+  &__list
+    +screen_lg
+      display: flex
+  &__item
+    padding-top: 5px
+    +screen_lg
+      padding-right: 30px
+    &::after
+      @extend %vertical-devider
+    &:last-child
+      padding-right: 0
+      &::after
+        display: none
+    &__text
+      &_title, &_plain
+        font-size: 13px
+        display: block
+      &_title
+        font-weight: bold
+  .logo
+    display: none
+    +screen_lg
+      display: initial
+
+        
+.menu
+  display: flex
+  justify-content: space-between
+  align-items: center
+  position: relative
+  +screen_lg
+      display: block
+  &__wrap
+    border: 1px solid $grey
+    padding: 5px 0
+    .logo
+      margin-left: 5px
+      +screen_lg
+        display: none
+  &__list
+    display: none
+    position: absolute
+    left: 0
+    right: 0
+    z-index: 10
+    padding: 5px
+    margin-top: 10px
+    background: white
+    +screen_lg
+      margin: 0
+      padding: 0
+      position: static
+      display: flex
+      justify-content: space-around
+  &__bars
+    display: none
+    &:checked + .menu__list
+      display: block
+  &__toggle
+    &_bars
+      font-size: 20px
+    &_upper, &_bars
+      padding: 0 5px
+      +screen_lg
+        display: none
+  &__link
+    text-transform: uppercase
+    font-size: 14px
+    +screen_lg
+      background: transparent
+    +screen_lg
+      &:hover
+        color: $green
+
+
+
